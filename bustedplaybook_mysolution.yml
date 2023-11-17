@@ -1,0 +1,20 @@
+---
+- name: Tuesday Challenge
+  hosts: planet express
+  connection: network_cli
+  gather_facts: yes
+
+  tasks:
+    - name: register out the variable named "result"
+      debug:
+      register: result
+
+    - name: print out the variable named "result"
+      debug:
+        var: "result"
+
+    - name: using apt to install sl
+      ansible.builtin.apt:
+        name: sl
+        state: present
+      become: yes
